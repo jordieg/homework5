@@ -1,0 +1,290 @@
+/* row, don't wrap flex default */
+/* get viewpoint meta line from homework 4
+display: flex (4 times)*/
+
+body{
+  font-family: 'Raleway', sans-serif; /* Test for this*/
+  margin: 0;
+  padding: 0;
+  font-size: 16pt; /* test for this! Make all sizes em or rem */
+  background-image: url('../images/concrete_seamless.png');
+}
+
+h1{
+  font-size: 2em;
+  text-align: center;
+  line-height: 2;
+}
+
+h2{
+  font-size: 1.5em;
+  text-align: center;
+  padding: 5px;
+}
+
+p {
+  padding: 0 30px;
+}
+
+a.skip{
+  background: white;
+  left: 0;
+  padding: 6px;
+  position: absolute;
+  top: -40px;
+  -webkit-transition: top 1s ease-out;
+  transition: top 1s ease-out;
+  z-index: 1;
+}
+
+a.skip:focus{
+  top:20px;
+  color: black;
+  text-decoration-style: solid;
+}
+
+*:focus{
+  border: 2px solid black;
+}
+
+footer{
+  background-color: black;
+  color: white;
+  padding: 30px;
+  text-align: center;
+}
+/* -webkit-transition:
+    transition: */
+
+/*
+Keyframes for animation*/
+
+/* The logo class should appear but not be animated if prefers-reduced-motion is selected in the accessibility preferences.  */
+
+@-webkit-keyframes logo_wiggle{
+  from {
+    height: auto;
+    width: 25px;
+  }
+  to {
+    height: auto;
+    width: 420px;
+  }
+}
+
+@keyframes logo_wiggle {
+  from {
+    height: auto;
+    width: 25px;
+  }
+  to {
+    height: auto;
+    width: 420px;
+  }
+}
+
+#logo{
+/* Animate the logo class with keyframes.
+It should start at a width of  25px  and grow to 420px.
+The animation should last 3 seconds and not-repeat.  */
+  /* display: block; */
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  animation: logo_wiggle 3s 1;
+  -webkit-animation: logo_wiggle 3s 1;
+
+}
+
+/* Cards! */
+.pricing{
+    /* min-height: 500px; */
+/* Edit the css for the pricing class to match our example. */
+  display: flex;
+  flex-direction: column;
+}
+
+.card {
+  /*You should use flex and the cards should be centered both
+  horizontally and vertically. */
+  /* display: flex; */
+  /* flex-direction: column; */
+  margin: 12px;
+  background: #fff;
+  border-radius: 7px;
+  padding: 0 0 50px 0;
+}
+
+.card > header{
+  background: #288080;
+  border: 2px solid #45ADAD;
+  padding: 20px 0;
+  border-radius: 7px 7px 0 0;
+}
+
+.card > ul{
+  list-style: none;
+  padding: 0;
+}
+
+.card > ul li {
+  width: 90%;
+  margin: 20px auto;
+}
+
+.card button{
+  width: 90%;
+  height: 40px;
+  border: 0;
+  margin-left: 12px;
+  border-radius: 7px;
+  background: #288080;
+  color: white;
+  font-size: 1em;
+}
+
+.card h3{
+  font-size: 4em;
+  color: white;
+  text-align: center;
+}
+
+.card_big{
+  -webkit-transform: initial;
+          transform: initial;
+}
+
+/* Gallery! */
+
+.gallery{
+  /* think about justify */
+  /* Edit the css for the gallery class to use flex to match our examples
+  -- the changes are not from media queries, but from the use of flex.*/
+  display: flex;
+  flex-direction: column;
+  min-height: 600px;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+}
+
+.gallery > img{
+  border: 10px #50C7C7 solid;
+  margin: 10px;
+  width: 300px;
+
+}
+
+/* Navbar */
+header{
+  /* Edit the css for the header to use flex to match our example. */
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border-bottom: 3px solid #50C7C7;
+}
+
+.nav_links{
+  /* Edit the css for the nav_links class to match our example
+  with each link on its own line.  Do not modify the list items or
+  the links - modify the nav_links class to use flex.  */
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  text-align: center;
+}
+
+.nav_item a{
+  color: black;
+  text-decoration: none;
+}
+
+.nav_item a:hover, a:focus{
+  color: #50C7C7;
+  text-decoration: underline;
+  -webkit-text-decoration-style: dotted;
+          text-decoration-style: dotted;
+}
+
+@media screen and (min-width: 850px){
+  .pricing {
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    align-self: center;
+  }
+  /* Cards! */
+  .card {
+    /* Edit the css for the card class to match our example.
+    Achieve this by using a flex-property to specify an initial size of 225px.*/
+    flex-direction: row;
+    flex-basis: 250px;
+    flex-wrap: wrap; */
+
+  }
+
+  .card_big{
+    -webkit-transform: scaleX(1.12);
+            transform: scaleX(1.12);
+  }
+
+  /* Navbar */
+
+  header{
+    /* Edit the css for the header to use flex to match our example. */
+    flex-direction: row;
+  }
+
+  .nav_links{
+    /* Edit the css for the nav_links class to match our example
+    with the links spaced apart. */
+    display: flex;
+    flex-direction: row;
+    float: right;
+    padding-top: 20px;
+  }
+
+  .nav_item a{
+    padding: 10px;
+  }
+
+  #logo {
+    margin-left: initial;
+
+  }
+
+  .gallery {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+
+@media print {
+  /* The background image should be removed.
+  Edit the pricing class so that the elements align on the top
+  The gallery class and id should not be displayed. */
+  .card {
+    flex-basis: 200px;
+  }
+
+  body{
+    background-image: none;
+  }
+
+  #gallery, .gallery{
+    display: none;
+    visibility: hidden;
+  }
+
+  .pricing{
+    align-items: flex-start;
+  }
+
+}
+
+@media screen and (prefers-reduced-motion: reduced){
+  #logo {
+    animation: none;
+  }
+
+}
